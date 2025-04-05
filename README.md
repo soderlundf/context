@@ -6,6 +6,10 @@ Express middleware for simple app context.
 
 It adds a `context` variable to the `app` object.
 
+# Installation
+
+`npm i @soderlundf/context`
+
 # Usage
 
 Default usage is to just `require` the module and then use it as a middleware.
