@@ -1,13 +1,22 @@
 const { AsyncLocalStorage } = require('async_hooks');
 const { randomUUID } = require('crypto');
 
-const context = new AsyncLocalStorage();
+const ctx = new AsyncLocalStorage();
 
-function mw(req, res, next) {
-    context.run(randomUUID, () => {
-        req.session = context.getStore();
+function context(req, res, next) {
+    ctx.run(randomUUID(), () => {
+        let _ctx = {
+            sessionId: ctx.getStore(),
+            timestamp: new Date().toISOString()
+        };
+        Object.keys(process.env).map((key) => {
+            if (key.toLowerCase().startsWith('ctx_')) {
+                _ctx[key] = process.env[key];
+            }
+        });
+        req.app.context = _ctx;
         next();
     });
 }
 
-module.exports = { mw };
+module.exports = context;
