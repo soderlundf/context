@@ -1,5 +1,6 @@
 const { AsyncLocalStorage } = require('async_hooks');
 const { randomUUID } = require('crypto');
+const process = require('node:process');
 
 const ctx = new AsyncLocalStorage();
 
