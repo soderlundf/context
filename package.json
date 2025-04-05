@@ -1,10 +1,10 @@
 {
   "name": "@soderlundf/context",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Express middleware for simple app context.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/**test*.js"
   },
   "keywords": [
     "express",
