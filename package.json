@@ -1,13 +1,25 @@
 {
   "name": "@soderlundf/context",
   "version": "1.0.0",
-  "description": "Express middleware for simple session context.",
+  "description": "Express middleware for simple app context.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express",
+    "middleware",
+    "context"
+  ],
+  "homepage": "https://github.com/soderlundf/context#readme",
+  "bugs": {
+    "url": "https://github.com/soderlundf/context/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soderlundf/context.git"
+  },
+  "author": "Freddy Söderlund",
   "license": "MIT",
   "type": "commonjs"
 }
