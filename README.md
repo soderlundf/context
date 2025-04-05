@@ -1,6 +1,6 @@
 # README
 
-Express middleware for simple session context.
+Express middleware for simple app context.
 
 # What it does
 

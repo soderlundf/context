@@ -1,6 +1,6 @@
 {
   "name": "@soderlundf/context",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Express middleware for simple app context.",
   "main": "src/index.js",
   "scripts": {
