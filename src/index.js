@@ -1,20 +1,13 @@
 const { AsyncLocalStorage } = require('async_hooks');
+const { randomUUID } = require('crypto');
 
-const asyncLocalStorage = new AsyncLocalStorage();
+const context = new AsyncLocalStorage();
 
-const sessionContextMiddleware = (req, res, next) => {
-    asyncLocalStorage.run(new Map(), () => {
-        asyncLocalStorage.getStore().set('sessionId', req.headers['x-session-id'] || 'default-session');
+function mw(req, res, next) {
+    context.run(randomUUID, () => {
+        req.session = context.getStore();
         next();
     });
-};
+}
 
-const getSessionContext = () => {
-    const store = asyncLocalStorage.getStore();
-    if (!store) {
-        throw new Error('No session context available');
-    }
-    return store;
-};
-
-module.exports = { getSessionContext };
+module.exports = { mw };
